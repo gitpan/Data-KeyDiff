@@ -9,11 +9,11 @@ Data::KeyDiff - Diff one set/list against another with a key basis
 
 =head1 VERSION
 
-Version 0.010_1
+Version 0.010_2
 
 =cut
 
-our $VERSION = '0.010_1';
+our $VERSION = '0.010_2';
 
 =head1 SYNOPSIS
 
@@ -24,7 +24,7 @@ our $VERSION = '0.010_1';
     use Data::KeyDiff qw/diff/;
     
     diff( \@A, \B,
-        get_key =>
+        key =>
             sub($item) {
                 # Return the leading number from $item
             },
@@ -191,6 +191,7 @@ under the same terms as Perl itself.
 =cut
 
 use Data::KeyDiff::Element;
+use Carp;
 
 use base qw/Exporter/;
 our @EXPORT_OK = qw/diff/;
@@ -201,7 +202,7 @@ sub diff {
     my $after = shift;
     my %in = @_;
 
-    my $get_key = $in{key} || sub {
+    my $get_key = $in{key} || $in{get_key} || sub {
         return shift;
     };
     my $is_new = $in{is_new};

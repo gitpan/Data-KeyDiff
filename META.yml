@@ -1,18 +1,21 @@
 ---
 name: Data-KeyDiff
-version: 0.010_1
+version: 0.010_2
 author:
   - 'Robert Krimen, C<< <rkrimen at cpan.org> >>'
 abstract: Diff one set/list against another with a key basis
 license: perl
 resources:
   license: http://dev.perl.org/licenses/
+requires:
+  Carp: 0
+  Object::Tiny: 0
 build_requires:
   Test::More: 0
 provides:
   Data::KeyDiff:
     file: lib/Data/KeyDiff.pm
-    version: 0.010_1
+    version: 0.010_2
   Data::KeyDiff::Element:
     file: lib/Data/KeyDiff/Element.pm
 generated_by: Module::Build version 0.2806
