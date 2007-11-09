@@ -21,3 +21,4 @@ inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Data/KeyDiff/Element.pm
+t/01-Data-KeyDiff.t

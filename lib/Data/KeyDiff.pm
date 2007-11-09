@@ -9,11 +9,11 @@ Data::KeyDiff - Diff one set/list against another with a key basis
 
 =head1 VERSION
 
-Version 0.010_2
+Version 0.020
 
 =cut
 
-our $VERSION = '0.010_2';
+$Date::KeyDiff::VERSION = '0.020';
 
 =head1 SYNOPSIS
 
@@ -23,7 +23,7 @@ our $VERSION = '0.010_2';
 
     use Data::KeyDiff qw/diff/;
     
-    diff( \@A, \B,
+    diff( \@A, \@B,
         key =>
             sub($item) {
                 # Return the leading number from $item
@@ -51,17 +51,17 @@ our $VERSION = '0.010_2';
 
         # "1f" and "3r" were updated
         update => sub($element) {
-            $element was "update" in @B
+            # $element was "update" in @B
         },
 
         # "6f" was deleted
         delete => sub($element) {
-            $element was "deleted" in @B
+            # $element was "deleted" in @B
         },
         
         # "5e", "2b", and "4d" changed rank
         update_rank => sub($element) {
-            $element had it's rank changed in @B
+            # $element had it's rank changed in @B
         },
     );
 
@@ -70,8 +70,6 @@ our $VERSION = '0.010_2';
 Data::KeyDiff performs a diff-like operation on sets that have unique keys associated with each element.
 Instead of looking at the whole list, C<diff> looks at each element on a case-by-case basis to see whether it's state or
 inclusion has changed from the "before" set to the "after" set.
-
-WARNING: Tests coming soon. :)
 
 =head1 METHODS
 
@@ -193,8 +191,9 @@ under the same terms as Perl itself.
 use Data::KeyDiff::Element;
 use Carp;
 
-use base qw/Exporter/;
-our @EXPORT_OK = qw/diff/;
+require Exporter;
+@Data::KeyDiff::ISA = qw/Exporter/;
+@Data::KeyDiff::EXPORT_OK = qw/diff/;
 
 sub diff {
     shift if $_[0] && $_[0] eq __PACKAGE__;
