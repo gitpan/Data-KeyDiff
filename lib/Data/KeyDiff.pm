@@ -9,11 +9,11 @@ Data::KeyDiff - Diff one set/list against another with a key basis
 
 =head1 VERSION
 
-Version 0.020
+Version 0.021
 
 =cut
 
-$Date::KeyDiff::VERSION = '0.020';
+$Data::KeyDiff::VERSION = '0.021';
 
 =head1 SYNOPSIS
 

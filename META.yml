@@ -1,6 +1,6 @@
 ---
 name: Data-KeyDiff
-version: 0.020
+version: 0.021
 author:
   - 'Robert Krimen, C<< <rkrimen at cpan.org> >>'
 abstract: Diff one set/list against another with a key basis
@@ -16,11 +16,9 @@ build_requires:
 provides:
   Data::KeyDiff:
     file: lib/Data/KeyDiff.pm
+    version: 0.021
   Data::KeyDiff::Element:
     file: lib/Data/KeyDiff/Element.pm
-  Date::KeyDiff:
-    file: lib/Data/KeyDiff.pm
-    version: 0.020
 generated_by: Module::Build version 0.2806
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
